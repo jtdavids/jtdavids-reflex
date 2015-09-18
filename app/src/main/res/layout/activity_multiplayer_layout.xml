@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.jake.jtdavids_reflex.MultiplayerActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please select the number of players"
+        android:id="@+id/SelectPlayersText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Players"
+        android:id="@+id/TwoPlayerButton"
+        android:layout_below="@+id/SelectPlayersText"
+        android:layout_marginTop="56dp"
+        android:layout_alignEnd="@+id/SelectPlayersText"
+        android:layout_alignParentStart="true"
+        android:height="80dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 Players"
+        android:id="@+id/ThreePlayerButton"
+        android:height="80dp"
+        android:layout_below="@+id/TwoPlayerButton"
+        android:layout_alignEnd="@+id/SelectPlayersText"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 Players"
+        android:id="@+id/FourPlayerButton"
+        android:height="80dp"
+        android:layout_below="@+id/ThreePlayerButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
