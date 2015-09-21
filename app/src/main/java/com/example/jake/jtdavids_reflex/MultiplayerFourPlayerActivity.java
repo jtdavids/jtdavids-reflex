@@ -1,29 +1,23 @@
 package com.example.jake.jtdavids_reflex;
 
-import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class SinglePlayerActivity extends AppCompatActivity {
+public class MultiplayerFourPlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_player);
+        setContentView(R.layout.activity_multiplayer_fourplayer_layout);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_single_player, menu);
+        getMenuInflater().inflate(R.menu.menu_multiplayer_game, menu);
         return true;
-    }
-    @Override
-    public void onPause() {
-        super.onPause();
     }
 
     @Override

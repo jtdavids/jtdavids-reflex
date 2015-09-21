@@ -1,9 +1,11 @@
 package com.example.jake.jtdavids_reflex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MultiplayerActivity extends AppCompatActivity {
 
@@ -33,5 +35,17 @@ public class MultiplayerActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void choseTwoPlayers(View view){
+        Intent intent = new Intent(this, MultiplayerTwoPlayerActivity.class);
+        startActivity(intent);
+    }
+    public void choseThreePlayers(View view){
+        Intent intent = new Intent(this, MultiplayerThreePlayerActivity.class);
+        startActivity(intent);
+    }
+    public void choseFourPlayers(View view){
+        Intent intent = new Intent(this, MultiplayerFourPlayerActivity.class);
+        startActivity(intent);
     }
 }

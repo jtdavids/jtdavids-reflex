@@ -4,8 +4,28 @@
     <string name="title_activity_single_player">SinglePlayerActivity</string>
     <string name="title_activity_multiplayer">Multiplayer</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_multiplayer_game">MultiplayerGameActivity</string>
+    <string name="title_activity_multiplayer_three_player">MultiplayerThreePlayerActivity</string>
+    <string name="title_activity_multiplayer_two_player">MultiplayerTwoPlayerActivity</string>
+    <string name="fourplayer_button1_text">Player 1</string>
+    <string name="Select_players_text">Please select the mode of play</string>
+    <string name="Single_player_text">Single Play</string>
+    <string name="Party_play_text">Party Play</string>
+    <string name="Statistics_text">Statistics</string>
+    <string name="fourplayer_button2_text">Player 2</string>
+    <string name="fourplayer_button3_text">Player 3</string>
+    <string name="fourplayer_button4_text">Player 4</string>
+    <string name="select_players_text">Please select the number of players</string>
+    <string name="select_two_players_text">2 Players</string>
+    <string name="select_three_players_text">3 Players</string>
+    <string name="select_four_players_text">4 Players</string>
+    <string name="fourplayer_buzzed_text">Player X buzzed in first!</string>
+    <string name="threeplayer_button1_text">Player 1</string>
+    <string name="threeplayer_button2_text">Player 2</string>
+    <string name="threeplayer_button3_text">Player 3</string>
+    <string name="twoplayer_button1_text">Player 1</string>
+    <string name="twoplayer_button2_text">Player 2</string>
+    <string name="singleplayer_getready_text">Get ready to click the button!</string>
+    <string name="singleplayer_click_text">CLICK!</string>
 
 
 </resources>

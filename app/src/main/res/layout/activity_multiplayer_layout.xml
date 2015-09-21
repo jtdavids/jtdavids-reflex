@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Please select the number of players"
+        android:text="@string/select_players_text"
         android:id="@+id/SelectPlayersText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -18,34 +18,37 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2 Players"
+        android:text="@string/select_two_players_text"
         android:id="@+id/TwoPlayerButton"
         android:layout_below="@+id/SelectPlayersText"
         android:layout_marginTop="56dp"
         android:layout_alignEnd="@+id/SelectPlayersText"
         android:layout_alignParentStart="true"
+        android:onClick="choseTwoPlayers"
         android:height="80dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3 Players"
+        android:text="@string/select_three_players_text"
         android:id="@+id/ThreePlayerButton"
         android:height="80dp"
         android:layout_below="@+id/TwoPlayerButton"
         android:layout_alignEnd="@+id/SelectPlayersText"
         android:layout_alignParentStart="true"
+        android:onClick="choseThreePlayers"
         android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4 Players"
+        android:text="@string/select_four_players_text"
         android:id="@+id/FourPlayerButton"
         android:height="80dp"
         android:layout_below="@+id/ThreePlayerButton"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:onClick="choseFourPlayers"
         android:layout_marginTop="20dp" />
 
 </RelativeLayout>

@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Get ready to click the button!"
+        android:text="@string/singleplayer_getready_text"
         android:id="@+id/GetReadyText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -27,7 +27,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CLICK!"
+        android:text="@string/singleplayer_click_text"
         android:gravity="center_horizontal"
         android:id="@+id/ClickPromptText"
         android:layout_below="@+id/GetReadyText"
