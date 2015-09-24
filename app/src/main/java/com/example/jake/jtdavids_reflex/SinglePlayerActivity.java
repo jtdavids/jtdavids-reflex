@@ -1,6 +1,7 @@
 package com.example.jake.jtdavids_reflex;
 
 import android.app.AlertDialog;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +13,33 @@ import android.widget.TextView;
 public class SinglePlayerActivity extends AppCompatActivity {
     private ReactionTimer timer = new ReactionTimer();
     private double wait_time;
+    final Handler handler = new Handler();
+    private boolean button_pressed_early;
+    private Runnable reaction_wait = new Runnable(){
+
+        @Override
+        public void run() {
+            if(!button_pressed_early){
+                timer.startTime();
+                TurnOnReactionButton();
+            }
+            else{
+                TurnOffReactionButton();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player);
+        button_pressed_early = false;
+        AlertDialog.Builder builder = new AlertDialog.Builder(SinglePlayerActivity.this);
+        builder.setMessage("Click the grey button to start a reaction test. Wait for the button to turn red before clicking.")
+                .setTitle("Instructions");
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
 
@@ -48,24 +71,25 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     public void start_time(View view){
         DisplayReactionTime("...");
+        DisplayReady("Get ready to click the button!");
         timer.startTime();
         wait_time = timer.getRandomStartTime();
         CheckForPrematureReaction();
-        while(timer.getTime() < wait_time){
+        //Need to find way to delay by wait_time
 
-        }
+        handler.postDelayed(reaction_wait ,(long) wait_time);
 
-        timer.startTime();
-        TurnOnReactionButton();
+
     }
     public void stop_time(View view){
         timer.stopTime();
-        DisplayReactionTime(String.valueOf(timer.getStoppedTime()/1000) + " s");
+        DisplayReactionTime(String.valueOf(timer.getStoppedTime() / 1000) + " s");
         TurnOffReactionButton();
     }
     public void TurnOnReactionButton(){
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         button.setBackgroundResource(R.drawable.button_icon_red);
+        DisplayReactionTime("CLICK!");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +104,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button_pressed_early = false;
                 start_time(v);
             }
         });
@@ -90,16 +115,17 @@ public class SinglePlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DisplayReactionTime("TOO SOON!");
-                timer.startTime();
-                while(timer.getTime() < 2000){
+                button_pressed_early = true;
 
-                }
-                start_time(v);
             }
         });
     }
     public void DisplayReactionTime(String message){
         TextView time = (TextView) findViewById(R.id.ClickPromptText);
         time.setText(message);
+    }
+    public void DisplayReady(String message){
+        TextView msg = (TextView) findViewById(R.id.GetReadyText);
+        msg.setText(message);
     }
 }

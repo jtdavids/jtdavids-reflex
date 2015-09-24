@@ -23,6 +23,6 @@ public class ReactionTimer {
         return time_stopped;
     }
     public double getRandomStartTime(){
-        return(Math.random()*max_wait_time);
+        return(Math.random()*max_wait_time+10);
     }
 }

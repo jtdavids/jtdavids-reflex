@@ -38,14 +38,17 @@ public class MultiplayerActivity extends AppCompatActivity {
     }
     public void choseTwoPlayers(View view){
         Intent intent = new Intent(this, MultiplayerTwoPlayerActivity.class);
+        intent.putExtra("playercount", 2);
         startActivity(intent);
     }
     public void choseThreePlayers(View view){
         Intent intent = new Intent(this, MultiplayerThreePlayerActivity.class);
+        intent.putExtra("playercount", 3);
         startActivity(intent);
     }
     public void choseFourPlayers(View view){
         Intent intent = new Intent(this, MultiplayerFourPlayerActivity.class);
+        intent.putExtra("playercount", 4);
         startActivity(intent);
     }
 
