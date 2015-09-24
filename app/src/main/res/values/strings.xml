@@ -25,7 +25,7 @@
     <string name="twoplayer_button1_text">Player 1</string>
     <string name="twoplayer_button2_text">Player 2</string>
     <string name="singleplayer_getready_text">Get ready to click the button!</string>
-    <string name="singleplayer_click_text">CLICK!</string>
+    <string name="singleplayer_click_text">00:00</string>
 
 
 </resources>

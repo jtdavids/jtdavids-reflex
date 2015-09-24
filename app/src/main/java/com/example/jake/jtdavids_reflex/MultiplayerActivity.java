@@ -48,4 +48,5 @@ public class MultiplayerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MultiplayerFourPlayerActivity.class);
         startActivity(intent);
     }
+
 }
