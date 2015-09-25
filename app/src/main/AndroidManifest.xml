@@ -26,15 +26,7 @@
         </activity>
         <activity
             android:name=".MultiplayerFourPlayerActivity"
-            android:label="MultiplayerFourPlayerActivity" >
-        </activity>
-        <activity
-            android:name=".MultiplayerThreePlayerActivity"
-            android:label="@string/title_activity_multiplayer_three_player" >
-        </activity>
-        <activity
-            android:name=".MultiplayerTwoPlayerActivity"
-            android:label="@string/title_activity_multiplayer_two_player" >
+            android:label="@string/title_activity_party_play" >
         </activity>
     </application>
 

@@ -29,14 +29,16 @@
             android:layout_height="match_parent"
             android:text="@string/fourplayer_button1_text"
             android:id="@+id/Player1Button"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="player1_Buzzed" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/fourplayer_button2_text"
-            android:id="@+id/Player2Button"
-            android:layout_weight="1"/>
+            android:text="@string/fourplayer_button3_text"
+            android:id="@+id/Player3Button"
+            android:layout_weight="1"
+            android:onClick="player3_Buzzed"/>
     </TableRow>
 
     <TableRow
@@ -47,16 +49,18 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/fourplayer_button3_text"
-            android:id="@+id/Player3Button"
-            android:layout_weight="1" />
+            android:text="@string/fourplayer_button2_text"
+            android:id="@+id/Player2Button"
+            android:layout_weight="1"
+            android:onClick="player2_Buzzed"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/fourplayer_button4_text"
             android:id="@+id/Player4Button"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="player4_Buzzed"/>
     </TableRow>
     </TableLayout>
 

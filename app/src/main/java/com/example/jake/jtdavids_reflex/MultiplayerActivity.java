@@ -37,18 +37,17 @@ public class MultiplayerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void choseTwoPlayers(View view){
-        Intent intent = new Intent(this, MultiplayerTwoPlayerActivity.class);
-        intent.putExtra("playercount", 2);
-        startActivity(intent);
+        LaunchPartyGame(2);
     }
     public void choseThreePlayers(View view){
-        Intent intent = new Intent(this, MultiplayerThreePlayerActivity.class);
-        intent.putExtra("playercount", 3);
-        startActivity(intent);
+        LaunchPartyGame(3);
     }
     public void choseFourPlayers(View view){
+        LaunchPartyGame(4);
+    }
+    public void LaunchPartyGame(int players){
         Intent intent = new Intent(this, MultiplayerFourPlayerActivity.class);
-        intent.putExtra("playercount", 4);
+        intent.putExtra("playercount", players);
         startActivity(intent);
     }
 
