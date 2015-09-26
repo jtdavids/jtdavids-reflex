@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class MultiplayerFourPlayerActivity extends AppCompatActivity {
@@ -21,6 +22,10 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         Intent intent = getIntent();
         AdjustForPlayerCount(intent.getExtras().getInt("playercount"));
         builder = new AlertDialog.Builder(MultiplayerFourPlayerActivity.this);
+        builder.setMessage("Be the first player to buzz their buzzer! The first buzzer hit will light up. Click RESET ROUND to start a new round. ")
+                .setTitle("INSTRUCTIONS");
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override
@@ -59,44 +64,67 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         }
     }
     public void player1_Buzzed(View view){
-        findViewById(R.id.Player1Button).setBackgroundColor(0xAFFF000);
-        builder.setMessage("Click to reset the buzzers.")
-                .setTitle("Player 1 Buzzed First!");
-        DisplayWinner();
+        view.setBackgroundColor(0xAFFF0000);
+        DisplayWinner(1);
+        disableBuzzers();
     }
     public void player2_Buzzed(View view){
-        findViewById(R.id.Player2Button).setBackgroundColor(0xAFFF000);
-        builder.setMessage("Click to reset the buzzers.")
-                .setTitle("Player 2 Buzzed First!");
-        DisplayWinner();
+        view.setBackgroundColor(0xAF00FF00);
+        DisplayWinner(2);
+        disableBuzzers();
     }
     public void player3_Buzzed(View view){
-        findViewById(R.id.Player3Button).setBackgroundColor(0xAFF0000);
-        builder.setMessage("Click to reset the buzzers.")
-                .setTitle("Player 3 Buzzed First!");
-        DisplayWinner();
+        view.setBackgroundColor(0xAF0000FF);
+        DisplayWinner(3);
+        disableBuzzers();
     }
     public void player4_Buzzed(View view){
-        findViewById(R.id.Player4Button).setBackgroundColor(0xAFF0000);
-        builder.setMessage("Click to reset the buzzers.")
-                .setTitle("Player 4 Buzzed First!");
-        DisplayWinner();
+        view.setBackgroundColor(0xAFF0F000);
+        DisplayWinner(4);
+        disableBuzzers();
     }
-    public void DisplayWinner(){
-        AlertDialog dialog = builder.create();
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                ResetBuzzers();
-            }
-        });
-        dialog.show();
+    public void DisplayWinner(int winner){
+        Button player1 = (Button) findViewById(R.id.Player1Button);
+        Button player2 = (Button) findViewById(R.id.Player2Button);
+        Button player3 = (Button) findViewById(R.id.Player3Button);
+        Button player4 = (Button) findViewById(R.id.Player4Button);
+
+        if (winner==1){
+            player2.setBackgroundColor(0x22DDDDDD);
+            player3.setBackgroundColor(0x22DDDDDD);
+            player4.setBackgroundColor(0x22DDDDDD);
+        } else if (winner==2){
+            player1.setBackgroundColor(0x22DDDDDD);
+            player3.setBackgroundColor(0x22DDDDDD);
+            player4.setBackgroundColor(0x22DDDDDD);
+        } else if (winner==3){
+            player2.setBackgroundColor(0x22DDDDDD);
+            player1.setBackgroundColor(0x22DDDDDD);
+            player4.setBackgroundColor(0x22DDDDDD);
+        } else {
+            player2.setBackgroundColor(0x22DDDDDD);
+            player1.setBackgroundColor(0x22DDDDDD);
+            player3.setBackgroundColor(0x22DDDDDD);
+        }
 
     }
-    public void ResetBuzzers(){
-       findViewById(R.id.Player1Button).setBackgroundResource(android.R.drawable.btn_default);
-       findViewById(R.id.Player2Button).setBackgroundResource(android.R.drawable.btn_default);
-       findViewById(R.id.Player3Button).setBackgroundResource(android.R.drawable.btn_default);
-       findViewById(R.id.Player4Button).setBackgroundResource(android.R.drawable.btn_default);
+    public void disableBuzzers() {
+       // findViewById(R.id.Player1Button).setEnabled(false);
+        findViewById(R.id.Player2Button).setEnabled(false);
+        findViewById(R.id.Player3Button).setEnabled(false);
+        findViewById(R.id.Player4Button).setEnabled(false);
+    }
+    public void ResetBuzzers(View view){
+        findViewById(R.id.Player1Button).setBackgroundColor(0x44FF0000);
+        findViewById(R.id.Player2Button).setBackgroundColor(0x4400FF00);
+        findViewById(R.id.Player3Button).setBackgroundColor(0x440000FF);
+        findViewById(R.id.Player4Button).setBackgroundColor(0x55F0F000);
+        enableBuzzers();
+    }
+    public void enableBuzzers(){
+      //  findViewById(R.id.Player1Button).setEnabled(true);
+        findViewById(R.id.Player2Button).setEnabled(true);
+        findViewById(R.id.Player3Button).setEnabled(true);
+        findViewById(R.id.Player4Button).setEnabled(true);
     }
 }

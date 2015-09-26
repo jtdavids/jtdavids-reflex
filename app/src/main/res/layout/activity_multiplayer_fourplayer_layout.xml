@@ -7,14 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.jake.jtdavids_reflex.MultiplayerFourPlayerActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/fourplayer_buzzed_text"
-        android:id="@+id/PlayerHasBuzzedText" />
+
     <TableLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
@@ -30,7 +23,11 @@
             android:text="@string/fourplayer_button1_text"
             android:id="@+id/Player1Button"
             android:layout_weight="1"
-            android:onClick="player1_Buzzed" />
+            android:onClick="player1_Buzzed"
+            android:layout_margin="5dp"
+            android:background="#44FF0000"
+            android:textColor="#000"
+            android:textSize="20sp" />
 
         <Button
             android:layout_width="0dp"
@@ -38,7 +35,11 @@
             android:text="@string/fourplayer_button3_text"
             android:id="@+id/Player3Button"
             android:layout_weight="1"
-            android:onClick="player3_Buzzed"/>
+            android:onClick="player3_Buzzed"
+            android:layout_margin="5dp"
+            android:background="#440000FF"
+            android:textColor="#000"
+            android:textSize="20sp" />
     </TableRow>
 
     <TableRow
@@ -52,7 +53,11 @@
             android:text="@string/fourplayer_button2_text"
             android:id="@+id/Player2Button"
             android:layout_weight="1"
-            android:onClick="player2_Buzzed"/>
+            android:onClick="player2_Buzzed"
+            android:layout_margin="5dp"
+            android:background="#4400FF00"
+            android:textColor="#000"
+            android:textSize="20sp" />
 
         <Button
             android:layout_width="0dp"
@@ -60,8 +65,25 @@
             android:text="@string/fourplayer_button4_text"
             android:id="@+id/Player4Button"
             android:layout_weight="1"
-            android:onClick="player4_Buzzed"/>
+            android:onClick="player4_Buzzed"
+            android:layout_margin="5dp"
+            android:background="#55F0F000"
+            android:textColor="#000"
+            android:textSize="20sp" />
     </TableRow>
     </TableLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:text="@string/multiplayer_reset_buttontext"
+        android:id="@+id/ResetRoundButton"
+        android:background="@drawable/reset_button"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="ResetBuzzers"/>
+
 
 </LinearLayout>

@@ -15,10 +15,10 @@
     <string name="select_two_players_text">2 Players</string>
     <string name="select_three_players_text">3 Players</string>
     <string name="select_four_players_text">4 Players</string>
-    <string name="fourplayer_buzzed_text">Player X buzzed in first!</string>
     <string name="singleplayer_getready_text">Get ready to click the button!</string>
     <string name="singleplayer_click_text">00:00</string>
     <string name="title_activity_party_play">Party Play</string>
+    <string name="multiplayer_reset_buttontext">Reset Round</string>
 
 
 </resources>
