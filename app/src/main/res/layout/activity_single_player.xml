@@ -38,7 +38,7 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/ClickPromptText"
         android:onClick="start_time"
-        android:background="@drawable/button_icon_grey"
+        android:background="@drawable/grey_button_image"
         android:adjustViewBounds="true" />
 
 </RelativeLayout>

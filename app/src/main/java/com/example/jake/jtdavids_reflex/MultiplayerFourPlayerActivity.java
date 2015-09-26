@@ -64,22 +64,22 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         }
     }
     public void player1_Buzzed(View view){
-        view.setBackgroundColor(0xAFFF0000);
+        view.setBackgroundResource(R.drawable.player1_button);
         DisplayWinner(1);
         disableBuzzers();
     }
     public void player2_Buzzed(View view){
-        view.setBackgroundColor(0xAF00FF00);
+        view.setBackgroundResource(R.drawable.player2_button);
         DisplayWinner(2);
         disableBuzzers();
     }
     public void player3_Buzzed(View view){
-        view.setBackgroundColor(0xAF0000FF);
+        view.setBackgroundResource(R.drawable.player3_button);
         DisplayWinner(3);
         disableBuzzers();
     }
     public void player4_Buzzed(View view){
-        view.setBackgroundColor(0xAFF0F000);
+        view.setBackgroundResource(R.drawable.player4_button);
         DisplayWinner(4);
         disableBuzzers();
     }
@@ -109,10 +109,10 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
 
     }
     public void disableBuzzers() {
-       // findViewById(R.id.Player1Button).setEnabled(false);
-        findViewById(R.id.Player2Button).setEnabled(false);
-        findViewById(R.id.Player3Button).setEnabled(false);
-        findViewById(R.id.Player4Button).setEnabled(false);
+        findViewById(R.id.Player1Button).setClickable(false);
+        findViewById(R.id.Player2Button).setClickable(false);
+        findViewById(R.id.Player3Button).setClickable(false);
+        findViewById(R.id.Player4Button).setClickable(false);
     }
     public void ResetBuzzers(View view){
         findViewById(R.id.Player1Button).setBackgroundColor(0x44FF0000);
@@ -122,9 +122,9 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         enableBuzzers();
     }
     public void enableBuzzers(){
-      //  findViewById(R.id.Player1Button).setEnabled(true);
-        findViewById(R.id.Player2Button).setEnabled(true);
-        findViewById(R.id.Player3Button).setEnabled(true);
-        findViewById(R.id.Player4Button).setEnabled(true);
+        findViewById(R.id.Player1Button).setClickable(true);
+        findViewById(R.id.Player2Button).setClickable(true);
+        findViewById(R.id.Player3Button).setClickable(true);
+        findViewById(R.id.Player4Button).setClickable(true);
     }
 }

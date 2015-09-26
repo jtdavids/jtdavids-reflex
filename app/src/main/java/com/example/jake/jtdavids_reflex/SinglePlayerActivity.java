@@ -88,7 +88,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
     public void TurnOnReactionButton(){
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
-        button.setBackgroundResource(R.drawable.button_icon_red);
+        button.setBackgroundResource(R.drawable.red_button_image);
         DisplayReactionTime("CLICK!");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +100,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
     public void TurnOffReactionButton(){
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
-        button.setBackgroundResource(R.drawable.button_icon_grey);
+        button.setBackgroundResource(R.drawable.grey_button_image);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
