@@ -22,6 +22,49 @@
     <string name="title_activity_statistics_activity">Statistics</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="stats_t1_r1_c1">Type</string>
+    <string name="stats_t1_r1_c2">All Times</string>
+    <string name="stats_t1_r1_c3">Last 10 Times</string>
+    <string name="stats_t1_r1_c4">Last 100 Times</string>
+    <string name="stats_t1_r2_c1">Min Time:</string>
+    <string name="stats_t1_r2_c2">1</string>
+    <string name="stats_t1_r2_c3">2</string>
+    <string name="stats_t1_r2_c4">3</string>
+    <string name="stats_t1_r3_c1">Max Time:</string>
+    <string name="stats_t1_r3_c2">4</string>
+    <string name="stats_t1_r3_c3">5</string>
+    <string name="stats_t1_r3_c4">6</string>
+    <string name="stats_t1_r4_c1">Avg Time:</string>
+    <string name="stats_t1_r4_c2">7</string>
+    <string name="stats_t1_r4_c3">8</string>
+    <string name="stats_t1_r4_c4">9</string>
+    <string name="stats_t1_r5_c1">Med Time:</string>
+    <string name="stats_t1_r5_c2">10</string>
+    <string name="stats_t1_r5_c3">11</string>
+    <string name="stats_t1_r5_c4">12</string>
+    <string name="stats_t2_r1_c1">Mode</string>
+    <string name="stats_t2_r1_c2">Player 1</string>
+    <string name="stats_t2_r1_c3">Player 2</string>
+    <string name="stats_t2_r1_c4">Player 3</string>
+    <string name="stats_t2_r1_c5">Player 4</string>
+    <string name="stats_t2_r2_c1">2 Players:</string>
+    <string name="stats_t2_r2_c2">0</string>
+    <string name="stats_t2_r2_c3">0</string>
+    <string name="stats_t2_r2_c4">X</string>
+    <string name="stats_t2_r2_c5">X</string>
+    <string name="stats_t2_r3_c1">3 Players:</string>
+    <string name="stats_t2_r3_c2">0</string>
+    <string name="stats_t2_r3_c4">0</string>
+    <string name="stats_t2_r3_c3">0</string>
+    <string name="stats_t2_r3_c5">X</string>
+    <string name="stats_t2_r4_c1">Player 4:</string>
+    <string name="stats_t2_r4_c2">0</string>
+    <string name="stats_t2_r4_c3">0</string>
+    <string name="stats_t2_r4_c4">0</string>
+    <string name="stats_t2_r4_c5">0</string>
+    <string name="statistics_text">STATISTICS</string>
+    <string name="stats_clear_text">Clear Stats</string>
+    <string name="stats_email_text">Email Stats</string>
 
 
 </resources>
