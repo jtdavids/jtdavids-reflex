@@ -10,11 +10,26 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 public class SinglePlayerActivity extends AppCompatActivity {
     private ReactionTimer timer = new ReactionTimer();
+    private StatisticCalc stats;
     private double wait_time;
     final Handler handler = new Handler();
     private boolean button_pressed_early;
+    private static final String FILENAME = "com.example.jake.jtdavids_reflex.data";
     private Runnable reaction_wait = new Runnable(){
 
         public void run() {
@@ -33,6 +48,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player);
         button_pressed_early = false;
+        loadFromFile();
         AlertDialog.Builder builder = new AlertDialog.Builder(SinglePlayerActivity.this);
         builder.setMessage("Click the grey button to start a reaction test. Wait for the button to turn red before clicking.")
                 .setTitle("Instructions");
@@ -51,6 +67,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
+        saveInFile();
     }
 
     @Override
@@ -83,6 +100,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     public void stop_time(View view){
         timer.stopTime();
         DisplayReactionTime(String.valueOf(timer.getStoppedTime() / 1000) + " s");
+        stats.add(timer.getStoppedTime() / 1000);
         TurnOffReactionButton();
     }
     public void TurnOnReactionButton(){
@@ -127,4 +145,38 @@ public class SinglePlayerActivity extends AppCompatActivity {
         TextView msg = (TextView) findViewById(R.id.GetReadyText);
         msg.setText(message);
     }
+    private void saveInFile() {
+        try {
+            FileOutputStream fos = openFileOutput(FILENAME,
+                    0);
+            OutputStreamWriter writer = new OutputStreamWriter(fos);
+            Gson gson = new Gson();
+            gson.toJson(stats, writer);
+            writer.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        }
+    }
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+            // Following line based on https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
+            stats = gson.fromJson(in, StatisticCalc.class);
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            stats = new StatisticCalc();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException(e);
+        }
+    }
+
 }
