@@ -44,5 +44,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MultiplayerActivity.class);
         startActivity(intent);
     }
+    public void choseStatistics(View view){
+        Intent intent = new Intent(this, Statistics_activity.class);
+        startActivity(intent);
+    }
 
 }
