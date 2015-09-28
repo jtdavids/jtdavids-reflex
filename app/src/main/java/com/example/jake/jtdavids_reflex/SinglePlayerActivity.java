@@ -17,7 +17,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private boolean button_pressed_early;
     private Runnable reaction_wait = new Runnable(){
 
-        @Override
         public void run() {
             if(!button_pressed_early){
                 timer.startTime();

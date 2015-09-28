@@ -19,6 +19,9 @@
     <string name="singleplayer_click_text">00:00</string>
     <string name="title_activity_party_play">Party Play</string>
     <string name="multiplayer_reset_buttontext">Reset Round</string>
+    <string name="title_activity_statistics_activity">Statistics</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>

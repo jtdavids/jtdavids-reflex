@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,17 +15,31 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class MultiplayerFourPlayerActivity extends AppCompatActivity {
-    private AlertDialog.Builder builder;
+    private String my_pref_name;
+    private int player1_score;
+    private int player2_score;
+    private int player3_score;
+    private int player4_score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer_fourplayer_layout);
+
         Intent intent = getIntent();
         AdjustForPlayerCount(intent.getExtras().getInt("playercount"));
-        builder = new AlertDialog.Builder(MultiplayerFourPlayerActivity.this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MultiplayerFourPlayerActivity.this);
         builder.setMessage("Be the first player to buzz their buzzer! The first buzzer hit will light up. Click RESET ROUND to start a new round. ")
                 .setTitle("INSTRUCTIONS");
         AlertDialog dialog = builder.create();
+
+        SharedPreferences score = getSharedPreferences(my_pref_name, MODE_PRIVATE);
+        player1_score = score.getInt("player1", 0);
+        player2_score = score.getInt("player2", 0);
+        player3_score = score.getInt("player3", 0);
+        player4_score = score.getInt("player4", 0);
+
         dialog.show();
     }
 
@@ -49,10 +64,18 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        updatePlayerScores();
+    }
     public void AdjustForPlayerCount(int players){
         if (players == 2){
             findViewById(R.id.Player3Button).setVisibility(View.GONE);
             findViewById(R.id.Player4Button).setVisibility(View.GONE);
+            my_pref_name = "com.example.jake.jtdavids_reflex.2players_scores";
         }
         else if (players == 3){
             ViewGroup.LayoutParams change_weight = new LinearLayout.LayoutParams(
@@ -61,27 +84,34 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
 
             findViewById(R.id.Player4Button).setVisibility(View.GONE);
             findViewById(R.id.tableRow3).setLayoutParams(change_weight);
+            my_pref_name = "com.example.jake.jtdavids_reflex.3players_scores";
+        } else{
+            my_pref_name = "com.example.jake.jtdavids_reflex.4players_scores";
         }
     }
     public void player1_Buzzed(View view){
         view.setBackgroundResource(R.drawable.player1_button);
         DisplayWinner(1);
         disableBuzzers();
+        player1_score++;
     }
     public void player2_Buzzed(View view){
         view.setBackgroundResource(R.drawable.player2_button);
         DisplayWinner(2);
         disableBuzzers();
+        player2_score++;
     }
     public void player3_Buzzed(View view){
         view.setBackgroundResource(R.drawable.player3_button);
         DisplayWinner(3);
         disableBuzzers();
+        player3_score++;
     }
     public void player4_Buzzed(View view){
         view.setBackgroundResource(R.drawable.player4_button);
         DisplayWinner(4);
         disableBuzzers();
+        player4_score++;
     }
     public void DisplayWinner(int winner){
         Button player1 = (Button) findViewById(R.id.Player1Button);
@@ -126,5 +156,15 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         findViewById(R.id.Player2Button).setClickable(true);
         findViewById(R.id.Player3Button).setClickable(true);
         findViewById(R.id.Player4Button).setClickable(true);
+    }
+
+    public void updatePlayerScores(){
+        SharedPreferences score = getSharedPreferences(my_pref_name, MODE_PRIVATE);
+        SharedPreferences.Editor editor = score.edit();
+        editor.putInt("player1", player1_score);
+        editor.putInt("player2", player2_score);
+        editor.putInt("player3", player3_score);
+        editor.putInt("player4", player4_score);
+        editor.commit();
     }
 }

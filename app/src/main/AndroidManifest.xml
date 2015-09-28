@@ -28,6 +28,10 @@
             android:name=".MultiplayerFourPlayerActivity"
             android:label="@string/title_activity_party_play" >
         </activity>
+        <activity
+            android:name=".Statistics_activity"
+            android:label="@string/title_activity_statistics_activity" >
+        </activity>
     </application>
 
 </manifest>
