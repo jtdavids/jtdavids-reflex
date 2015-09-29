@@ -361,7 +361,7 @@
                 android:background="@drawable/reset_button"
                 android:textColor="#000"
                 android:textSize="15sp"
-                android:onClick=""/>
+                android:onClick="clearStats"/>
             <Button
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

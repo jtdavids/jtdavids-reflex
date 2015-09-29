@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -116,9 +117,9 @@ public class Statistics_activity extends AppCompatActivity {
         edit_maxtime_10.setText(stats.getSpecifiedTimeMax(10));
         edit_maxtime_100.setText(stats.getSpecifiedTimeMax(100));
 
-        edit_avgtime_all.setText(stats.getAllTimeAvg().substring(0,5));
-        edit_avgtime_10.setText(stats.getSpecifiedTimeAvg(10).substring(0,5));
-        edit_avgtime_100.setText(stats.getSpecifiedTimeAvg(100).substring(0,5));
+        edit_avgtime_all.setText(stats.getAllTimeAvg().substring(0, 5));
+        edit_avgtime_10.setText(stats.getSpecifiedTimeAvg(10).substring(0, 5));
+        edit_avgtime_100.setText(stats.getSpecifiedTimeAvg(100).substring(0, 5));
 
         edit_medtime_all.setText(stats.getAllTimeMed());
         edit_medtime_10.setText(stats.getSpecifiedTimeMed(10));
@@ -156,5 +157,29 @@ public class Statistics_activity extends AppCompatActivity {
             // TODO Auto-generated catch block
             throw new RuntimeException(e);
         }
+    }
+    public void clearStats(View view){
+        SharedPreferences.Editor twoplayer_editor = twoplayers_score.edit();
+        SharedPreferences.Editor threeplayer_editor = threeplayers_score.edit();
+        SharedPreferences.Editor fourplayer_editor = fourplayers_score.edit();
+
+        twoplayer_editor.putInt("player1", 0);
+        twoplayer_editor.putInt("player2", 0);
+        threeplayer_editor.putInt("player1", 0);
+        threeplayer_editor.putInt("player2", 0);
+        threeplayer_editor.putInt("player3", 0);
+        fourplayer_editor.putInt("player1", 0);
+        fourplayer_editor.putInt("player2", 0);
+        fourplayer_editor.putInt("player3", 0);
+        fourplayer_editor.putInt("player4", 0);
+        twoplayer_editor.commit();
+        threeplayer_editor.commit();
+        fourplayer_editor.commit();
+
+        stats.clear();
+        saveInFile();
+
+        updatePartyScores();
+        updateSingleScore();
     }
 }

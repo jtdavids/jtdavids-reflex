@@ -87,7 +87,7 @@ public class StatisticCalc {
             }
             return String.valueOf((avg / reaction_times.size()));
         } else{
-            return "N/A";
+            return "N/A   ";
         }
     }
     public String getSpecifiedTimeAvg(int length){
@@ -97,12 +97,12 @@ public class StatisticCalc {
             }
 
             double avg = reaction_times.get(reaction_times.size()-1);
-            for (int i = reaction_times.size()-2; i > reaction_times.size()-length; i--) {
+            for (int i = reaction_times.size()-2; i >= reaction_times.size()-length; i--) {
                 avg = avg + reaction_times.get(i);
             }
             return String.valueOf((avg / length));
         }else{
-            return "N/A";
+            return "N/A   ";
         }
     }
     public String getAllTimeMed(){
@@ -120,7 +120,7 @@ public class StatisticCalc {
             if(reaction_times.size() < length){
                 length = reaction_times.size();
             }
-            List<Double> sorted_times = new ArrayList<Double>(reaction_times.subList(0, length-1));
+            List<Double> sorted_times = new ArrayList<Double>(reaction_times.subList(0, length));
             Collections.sort(sorted_times);
 
             return String.valueOf((sorted_times.get(sorted_times.size() / 2)));
