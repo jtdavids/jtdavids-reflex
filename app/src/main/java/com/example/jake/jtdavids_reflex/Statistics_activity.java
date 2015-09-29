@@ -1,6 +1,8 @@
 package com.example.jake.jtdavids_reflex;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -181,5 +183,28 @@ public class Statistics_activity extends AppCompatActivity {
 
         updatePartyScores();
         updateSingleScore();
+    }
+    public void sendEmail(View view){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"test"});
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Statistics");
+        intent.putExtra(Intent.EXTRA_TEXT, "______SINGLEPLAYER______\n" +
+                "MIN TIME:\n" +
+                "All Time:" + stats.getAllTimeMin() + " Last 10 times:" + stats.getSpecifiedTimeMin(10) + " Last 100 times:" + stats.getSpecifiedTimeMin(100) + "\n" +
+                "MAX TIME:\n" +
+                "All Time:" + stats.getAllTimeMax() + " Last 10 times:" + stats.getSpecifiedTimeMax(10) + " Last 100 times:" + stats.getSpecifiedTimeMax(100) + "\n" +
+                "AVERAGE TIME:\n" +
+                "All Time:" + stats.getAllTimeAvg() + " Last 10 times:" + stats.getSpecifiedTimeAvg(10) + " Last 100 times:" + stats.getSpecifiedTimeAvg(100) + "\n" +
+                "MEDIAN TIME:\n" +
+                "All Time:" + stats.getAllTimeMed() + " Last 10 times:" + stats.getSpecifiedTimeMed(10) + " Last 100 times:" + stats.getSpecifiedTimeMed(100) + "\n" +
+                "______PARTY PLAY______\n" +
+                "2 PLAYERS:\n" +
+                "Player 1:" + String.valueOf(twoplayers_score.getInt("player1", 0)) + " Player 2:" + String.valueOf(twoplayers_score.getInt("player2", 0)) + "\n" +
+                "3 PLAYERS:\n" +
+                "Player 1:" + String.valueOf(threeplayers_score.getInt("player1", 0)) + " Player 2:" + String.valueOf(threeplayers_score.getInt("player2", 0)) + "\n" + " Player 3:" + String.valueOf(threeplayers_score.getInt("player3", 0)) + "\n" +
+                "4 PLAYERS:\n" +
+                "Player 1:" + String.valueOf(fourplayers_score.getInt("player1", 0)) + "\n" + " Player 2:" + String.valueOf(fourplayers_score.getInt("player2", 0)) + "\n" + " Player 3:" + String.valueOf(fourplayers_score.getInt("player3", 0)) + "\n" + " Player 4:" + String.valueOf(fourplayers_score.getInt("player4", 0)) + "\n");
+        startActivity(intent);
     }
 }
