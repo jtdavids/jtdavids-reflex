@@ -35,9 +35,12 @@ public class Statistics_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistics_activity_layout);
+
+        //load party play scores
         twoplayers_score = getSharedPreferences("com.example.jake.jtdavids_reflex.2players_scores", MODE_PRIVATE);
         threeplayers_score = getSharedPreferences("com.example.jake.jtdavids_reflex.3players_scores", MODE_PRIVATE);
         fourplayers_score = getSharedPreferences("com.example.jake.jtdavids_reflex.4players_scores", MODE_PRIVATE);
+        //load StatisticCalc instance from data file
         loadFromFile();
     }
 
@@ -69,6 +72,7 @@ public class Statistics_activity extends AppCompatActivity {
         updateSingleScore();
     }
     public void updatePartyScores(){
+        //Updates all the scores of Party Mode
         TextView edit_twoplayers_1 = (TextView)findViewById(R.id.stats_t2_r2_c2);
         TextView edit_twoplayers_2 = (TextView)findViewById(R.id.stats_t2_r2_c3);
 
@@ -95,6 +99,7 @@ public class Statistics_activity extends AppCompatActivity {
 
     }
     public void updateSingleScore(){
+        //Updates all the reaction times from SingePlayer mode
         TextView edit_mintime_all = (TextView)findViewById(R.id.stats_t1_r2_c2);
         TextView edit_mintime_10 = (TextView)findViewById(R.id.stats_t1_r2_c3);
         TextView edit_mintime_100 = (TextView)findViewById(R.id.stats_t1_r2_c4);
@@ -128,6 +133,8 @@ public class Statistics_activity extends AppCompatActivity {
         edit_medtime_100.setText(stats.getSpecifiedTimeMed(100));
     }
     private void saveInFile() {
+        //*** code design sourced from Cmput 301 Lab sessions ***
+        //saves StatisticCalc instance back into data file
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
                     0);
@@ -145,6 +152,9 @@ public class Statistics_activity extends AppCompatActivity {
         }
     }
     private void loadFromFile() {
+        //*** code design sourced from Cmput 301 Lab Sessions ***
+        //load StatisticCalc instance from data file which contains a list
+        //of all recorded reaction times
         try {
             FileInputStream fis = openFileInput(FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
@@ -161,6 +171,9 @@ public class Statistics_activity extends AppCompatActivity {
         }
     }
     public void clearStats(View view){
+        //Clears all data from StatisticCalc and for PartyPlay
+        //Saves the cleared changes of StatisticCalc instance
+        //Updates the Statistics table to reflect these changes
         SharedPreferences.Editor twoplayer_editor = twoplayers_score.edit();
         SharedPreferences.Editor threeplayer_editor = threeplayers_score.edit();
         SharedPreferences.Editor fourplayer_editor = fourplayers_score.edit();
@@ -185,6 +198,7 @@ public class Statistics_activity extends AppCompatActivity {
         updateSingleScore();
     }
     public void sendEmail(View view){
+        //Sends email with statistics contained within the body
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"test"});

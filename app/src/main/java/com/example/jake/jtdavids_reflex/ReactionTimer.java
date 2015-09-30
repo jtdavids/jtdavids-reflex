@@ -16,13 +16,11 @@ public class ReactionTimer {
     public void stopTime(){
         time_stopped = System.currentTimeMillis()-time_started;
     }
-    public double getTime(){
-        return System.currentTimeMillis()-time_started;
-    }
     public double getStoppedTime(){
         return time_stopped;
     }
     public double getRandomStartTime(){
+        //gets a random time to wait between 10 and 2000 ms
         return(Math.random()*max_wait_time+10);
     }
 }

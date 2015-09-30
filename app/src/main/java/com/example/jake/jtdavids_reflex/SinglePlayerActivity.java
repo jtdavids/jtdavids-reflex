@@ -34,10 +34,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
         public void run() {
             if(!button_pressed_early){
+                //if button wasnt pressed too early, continue the reaction test
                 timer.startTime();
                 TurnOnReactionButton();
             }
             else{
+                //if pressed too early, stop the reaction test and reset.
                 TurnOffReactionButton();
             }
         }
@@ -48,7 +50,10 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player);
         button_pressed_early = false;
+        //load the statcalc instance
         loadFromFile();
+
+        //build and show pop up containing instructions on how to play
         AlertDialog.Builder builder = new AlertDialog.Builder(SinglePlayerActivity.this);
         builder.setMessage("Click the grey button to start a reaction test. Wait for the button to turn red before clicking.")
                 .setTitle("Instructions");
@@ -86,27 +91,38 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     public void start_time(View view){
+        //Initialize conditions for a new reaction test
         DisplayReactionTime("...");
         DisplayReady("Get ready to click the button!");
         timer.startTime();
         wait_time = timer.getRandomStartTime();
-        CheckForPrematureReaction();
-        //Need to find way to delay by wait_time
 
+        //Set button to check for an early press
+        CheckForPrematureReaction();
+
+        //after random wait time, handler will either proceed with the reaction test
+        //or stop the reaction test depending if the button was pressed too early.
+        //doesn't lock user out of UI while waiting
         handler.postDelayed(reaction_wait ,(long) wait_time);
 
 
     }
     public void stop_time(View view){
+        //stop and record reaction time
         timer.stopTime();
         DisplayReactionTime(String.valueOf(timer.getStoppedTime() / 1000) + " s");
         stats.add(timer.getStoppedTime() / 1000);
+
+        //turn off the test and wait for a new test to begin
         TurnOffReactionButton();
     }
     public void TurnOnReactionButton(){
+        //prompt user to click the button
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         button.setBackgroundResource(R.drawable.red_button_image);
         DisplayReactionTime("CLICK!");
+
+        //switch button from checking for an early press to a valid press
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,8 +132,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     }
     public void TurnOffReactionButton(){
+        //swap reaction button back to grey and prompt user to start a new test
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         button.setBackgroundResource(R.drawable.grey_button_image);
+        DisplayReady("Click the button to start a new test!");
+
+        //reset the button to wait for a new rest to begin
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +148,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
     public void CheckForPrematureReaction(){
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
+        //set button to complain if pressed too early
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +167,8 @@ public class SinglePlayerActivity extends AppCompatActivity {
         msg.setText(message);
     }
     private void saveInFile() {
+        //*** code design sourced from the Cmput 301 Lab sessions ***
+        //Save instance of StatisticCalc to data file
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
                     0);
@@ -163,6 +186,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
         }
     }
     private void loadFromFile() {
+        //*** code design sourced from the Cmput 301 Lab sessions ***
+        //load the instance of StatisticCalc from data file
+        //contains list of all previous reaction times
         try {
             FileInputStream fis = openFileInput(FILENAME);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));

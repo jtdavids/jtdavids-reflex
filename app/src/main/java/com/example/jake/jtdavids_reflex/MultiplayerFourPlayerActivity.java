@@ -29,11 +29,13 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         Intent intent = getIntent();
         AdjustForPlayerCount(intent.getExtras().getInt("playercount"));
 
+        //construct the pop up message containing the how-to-play instructions
         AlertDialog.Builder builder = new AlertDialog.Builder(MultiplayerFourPlayerActivity.this);
         builder.setMessage("Be the first player to buzz their buzzer! The first buzzer hit will light up. Click RESET ROUND to start a new round. ")
                 .setTitle("INSTRUCTIONS");
         AlertDialog dialog = builder.create();
 
+        //retrieve any previously stored scores
         SharedPreferences score = getSharedPreferences(my_pref_name, MODE_PRIVATE);
         player1_score = score.getInt("player1", 0);
         player2_score = score.getInt("player2", 0);
@@ -72,6 +74,9 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         updatePlayerScores();
     }
     public void AdjustForPlayerCount(int players){
+        //Adjusts the activity layout depending on how many players are selected
+        //by removing any unused player buttons
+        //Sets the correct storage location to read/write scores too
         if (players == 2){
             findViewById(R.id.Player3Button).setVisibility(View.GONE);
             findViewById(R.id.Player4Button).setVisibility(View.GONE);
@@ -90,30 +95,35 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         }
     }
     public void player1_Buzzed(View view){
+        //Light up buzzer of first player to click, disable all buzzers, update player score
         view.setBackgroundResource(R.drawable.player1_button);
         DisplayWinner(1);
         disableBuzzers();
         player1_score++;
     }
     public void player2_Buzzed(View view){
+        //Light up buzzer of first player to click, disable all buzzers, update player score
         view.setBackgroundResource(R.drawable.player2_button);
         DisplayWinner(2);
         disableBuzzers();
         player2_score++;
     }
     public void player3_Buzzed(View view){
+        //Light up buzzer of first player to click, disable all buzzers, update player score
         view.setBackgroundResource(R.drawable.player3_button);
         DisplayWinner(3);
         disableBuzzers();
         player3_score++;
     }
     public void player4_Buzzed(View view){
+        //Light up buzzer of first player to click, disable all buzzers, update player score
         view.setBackgroundResource(R.drawable.player4_button);
         DisplayWinner(4);
         disableBuzzers();
         player4_score++;
     }
     public void DisplayWinner(int winner){
+        //Fade out buzzers except for the winner
         Button player1 = (Button) findViewById(R.id.Player1Button);
         Button player2 = (Button) findViewById(R.id.Player2Button);
         Button player3 = (Button) findViewById(R.id.Player3Button);
@@ -139,12 +149,15 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
 
     }
     public void disableBuzzers() {
+        //Set all buzzers to be unclickable while the round has yet to be reset
         findViewById(R.id.Player1Button).setClickable(false);
         findViewById(R.id.Player2Button).setClickable(false);
         findViewById(R.id.Player3Button).setClickable(false);
         findViewById(R.id.Player4Button).setClickable(false);
     }
     public void ResetBuzzers(View view){
+        //Reset the round by making all buzzers clickable again and restoring
+        //them to their respective colors
         findViewById(R.id.Player1Button).setBackgroundColor(0x44FF0000);
         findViewById(R.id.Player2Button).setBackgroundColor(0x4400FF00);
         findViewById(R.id.Player3Button).setBackgroundColor(0x440000FF);
@@ -152,6 +165,7 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
         enableBuzzers();
     }
     public void enableBuzzers(){
+        //make all buzzers clickable
         findViewById(R.id.Player1Button).setClickable(true);
         findViewById(R.id.Player2Button).setClickable(true);
         findViewById(R.id.Player3Button).setClickable(true);
@@ -159,6 +173,7 @@ public class MultiplayerFourPlayerActivity extends AppCompatActivity {
     }
 
     public void updatePlayerScores(){
+        //save all current scores to the designated storage location
         SharedPreferences score = getSharedPreferences(my_pref_name, MODE_PRIVATE);
         SharedPreferences.Editor editor = score.edit();
         editor.putInt("player1", player1_score);
