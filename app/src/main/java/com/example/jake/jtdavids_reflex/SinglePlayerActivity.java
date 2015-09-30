@@ -135,7 +135,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         //swap reaction button back to grey and prompt user to start a new test
         ImageButton button = (ImageButton) findViewById(R.id.imageButton);
         button.setBackgroundResource(R.drawable.grey_button_image);
-        DisplayReady("Click the button to start a new test!");
+        DisplayReady("Click to start a new test!");
 
         //reset the button to wait for a new rest to begin
         button.setOnClickListener(new View.OnClickListener() {
