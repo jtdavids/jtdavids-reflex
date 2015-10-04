@@ -1,0 +1,379 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.jake.jtdavids_reflex.Statistics_activity">
+
+    <TableLayout android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <TableRow
+            android:id="@+id/stat_Text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0" >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/statistics_text"
+                android:id="@+id/statistics_text"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            </TableRow>
+        <TableRow
+            android:id="@+id/stat_table1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+            <TableLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:id="@+id/stat_t1_row1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r1_c1"
+                        android:id="@+id/stats_t1_r1_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r1_c2"
+                        android:id="@+id/stats_t1_r1_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r1_c3"
+                        android:id="@+id/stats_t1_r1_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r1_c4"
+                        android:id="@+id/stats_t1_r1_c4"
+                        android:layout_weight="1" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/stat_t1_row2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r2_c1"
+                        android:id="@+id/stats_t1_r2_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r2_c2"
+                        android:id="@+id/stats_t1_r2_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r2_c3"
+                        android:id="@+id/stats_t1_r2_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r2_c4"
+                        android:id="@+id/stats_t1_r2_c4"
+                        android:layout_weight="1" />
+
+                </TableRow>
+                <TableRow
+                    android:id="@+id/stat_t1_row3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r3_c1"
+                        android:id="@+id/stats_t1_r3_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r3_c2"
+                        android:id="@+id/stats_t1_r3_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r3_c3"
+                        android:id="@+id/stats_t1_r3_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r3_c4"
+                        android:id="@+id/stats_t1_r3_c4"
+                        android:layout_weight="1" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/stat_t1_row4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r4_c1"
+                        android:id="@+id/stats_t1_r4_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r4_c2"
+                        android:id="@+id/stats_t1_r4_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r4_c3"
+                        android:id="@+id/stats_t1_r4_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r4_c4"
+                        android:id="@+id/stats_t1_r4_c4"
+                        android:layout_weight="1" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/stat_t1_row5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r5_c1"
+                        android:id="@+id/stats_t1_r5_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r5_c2"
+                        android:id="@+id/stats_t1_r5_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r5_c3"
+                        android:id="@+id/stats_t1_r5_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t1_r5_c4"
+                        android:id="@+id/stats_t1_r5_c4"
+                        android:layout_weight="1" />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+        <TableRow
+            android:id="@+id/stat_table2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+            <TableLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:id="@+id/stat_t2_row1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r1_c1"
+                        android:id="@+id/stats_t2_r1_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r1_c2"
+                        android:id="@+id/stats_t2_r1_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r1_c3"
+                        android:id="@+id/stats_t2_r1_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r1_c4"
+                        android:id="@+id/stats_t2_r1_c4"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r1_c5"
+                        android:id="@+id/stats_t2_r1_c5"
+                        android:layout_weight="1" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/stat_t2_row2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r2_c1"
+                        android:id="@+id/stats_t2_r2_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r2_c2"
+                        android:id="@+id/stats_t2_r2_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r2_c3"
+                        android:id="@+id/stats_t2_r2_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r2_c4"
+                        android:id="@+id/stats_t2_r2_c4"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r2_c5"
+                        android:id="@+id/stats_t2_r2_c5"
+                        android:layout_weight="1" />
+
+                </TableRow>
+                <TableRow
+                    android:id="@+id/stat_t2_row3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r3_c1"
+                        android:id="@+id/stats_t2_r3_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r3_c2"
+                        android:id="@+id/stats_t2_r3_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r3_c3"
+                        android:id="@+id/stats_t2_r3_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r3_c4"
+                        android:id="@+id/stats_t2_r3_c4"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r3_c5"
+                        android:id="@+id/stats_t2_r3_c5"
+                        android:layout_weight="1" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/stat_t2_row4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r4_c1"
+                        android:id="@+id/stats_t2_r4_c1"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r4_c2"
+                        android:id="@+id/stats_t2_r4_c2"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r4_c3"
+                        android:id="@+id/stats_t2_r4_c3"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r4_c4"
+                        android:id="@+id/stats_t2_r4_c4"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/stats_t2_r4_c5"
+                        android:id="@+id/stats_t2_r4_c5"
+                        android:layout_weight="1" />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+        <TableRow
+            android:id="@+id/stat_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0" >
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/stats_clear_text"
+                android:id="@+id/ClearStatsButton"
+                android:background="@drawable/reset_button"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:onClick="clearStats"/>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/stats_email_text"
+                android:id="@+id/EmailStatsButton"
+                android:background="@drawable/reset_button"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:onClick="sendEmail"/>
+            </TableRow>
+    </TableLayout>
+
+</LinearLayout>
