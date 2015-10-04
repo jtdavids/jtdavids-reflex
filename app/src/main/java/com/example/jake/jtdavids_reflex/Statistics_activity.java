@@ -203,22 +203,7 @@ public class Statistics_activity extends AppCompatActivity {
         intent.setType("message/rfc822");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"test"});
         intent.putExtra(Intent.EXTRA_SUBJECT,"Statistics");
-        intent.putExtra(Intent.EXTRA_TEXT, "______SINGLEPLAYER______\n" +
-                "      MIN TIME:\n" +
-                "All Time: " + stats.getAllTimeMin() + "\nLast 10 times: " + stats.getSpecifiedTimeMin(10) + "\nLast 100 times: " + stats.getSpecifiedTimeMin(100) + "\n" +
-                "      MAX TIME:\n" +
-                "All Time: " + stats.getAllTimeMax() + "\nLast 10 times: " + stats.getSpecifiedTimeMax(10) + "\nLast 100 times: " + stats.getSpecifiedTimeMax(100) + "\n" +
-                "      AVERAGE TIME:\n" +
-                "All Time: " + stats.getAllTimeAvg() + "\nLast 10 times: " + stats.getSpecifiedTimeAvg(10) + "\nLast 100 times: " + stats.getSpecifiedTimeAvg(100) + "\n" +
-                "      MEDIAN TIME:\n" +
-                "All Time: " + stats.getAllTimeMed() + "\nLast 10 times: " + stats.getSpecifiedTimeMed(10) + "\nLast 100 times: " + stats.getSpecifiedTimeMed(100) + "\n" +
-                "______PARTY PLAY______\n" +
-                "      2 PLAYERS:\n" +
-                "Player 1: " + String.valueOf(twoplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(twoplayers_score.getInt("player2", 0)) + "\n" +
-                "      3 PLAYERS:\n" +
-                "Player 1: " + String.valueOf(threeplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(threeplayers_score.getInt("player2", 0)) + "\nPlayer 3: " + String.valueOf(threeplayers_score.getInt("player3", 0)) + "\n" +
-                "      4 PLAYERS:\n" +
-                "Player 1: " + String.valueOf(fourplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(fourplayers_score.getInt("player2", 0)) + "\nPlayer 3: " + String.valueOf(fourplayers_score.getInt("player3", 0)) + "\nPlayer 4: " + String.valueOf(fourplayers_score.getInt("player4", 0)) + "\n");
+        intent.putExtra(Intent.EXTRA_TEXT, stats.getStatsMessage(twoplayers_score, threeplayers_score, fourplayers_score));
         startActivity(intent);
     }
 }

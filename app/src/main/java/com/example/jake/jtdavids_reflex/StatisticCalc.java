@@ -1,5 +1,7 @@
 package com.example.jake.jtdavids_reflex;
 
+import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
  */
 public class StatisticCalc {
     List<Double> reaction_times = new ArrayList<Double>();
+
     public StatisticCalc() {
     }
     public void add(double time){
@@ -145,6 +148,26 @@ public class StatisticCalc {
         }else{
             return "N/A";
         }
+    }
+
+    public String getStatsMessage(SharedPreferences twoplayers_score, SharedPreferences threeplayers_score, SharedPreferences fourplayers_score){
+
+        return ("______SINGLEPLAYER______\n" +
+                "      MIN TIME:\n" +
+                "All Time: " + getAllTimeMin() + "\nLast 10 times: " + getSpecifiedTimeMin(10) + "\nLast 100 times: " + getSpecifiedTimeMin(100) + "\n" +
+                "      MAX TIME:\n" +
+                "All Time: " + getAllTimeMax() + "\nLast 10 times: " + getSpecifiedTimeMax(10) + "\nLast 100 times: " + getSpecifiedTimeMax(100) + "\n" +
+                "      AVERAGE TIME:\n" +
+                "All Time: " + getAllTimeAvg() + "\nLast 10 times: " + getSpecifiedTimeAvg(10) + "\nLast 100 times: " + getSpecifiedTimeAvg(100) + "\n" +
+                "      MEDIAN TIME:\n" +
+                "All Time: " + getAllTimeMed() + "\nLast 10 times: " + getSpecifiedTimeMed(10) + "\nLast 100 times: " + getSpecifiedTimeMed(100) + "\n" +
+                "______PARTY PLAY______\n" +
+                "      2 PLAYERS:\n" +
+                "Player 1: " + String.valueOf(twoplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(twoplayers_score.getInt("player2", 0)) + "\n" +
+                "      3 PLAYERS:\n" +
+                "Player 1: " + String.valueOf(threeplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(threeplayers_score.getInt("player2", 0)) + "\nPlayer 3: " + String.valueOf(threeplayers_score.getInt("player3", 0)) + "\n" +
+                "      4 PLAYERS:\n" +
+                "Player 1: " + String.valueOf(fourplayers_score.getInt("player1", 0)) + "\nPlayer 2: " + String.valueOf(fourplayers_score.getInt("player2", 0)) + "\nPlayer 3: " + String.valueOf(fourplayers_score.getInt("player3", 0)) + "\nPlayer 4: " + String.valueOf(fourplayers_score.getInt("player4", 0)) + "\n");
     }
 
 }
