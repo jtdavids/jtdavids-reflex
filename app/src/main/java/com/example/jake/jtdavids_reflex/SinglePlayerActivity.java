@@ -1,3 +1,21 @@
+/*
+{{ jtdavids-reflex }}
+Copyright (C) 2015 Jake Davidson
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 package com.example.jake.jtdavids_reflex;
 
 import android.app.AlertDialog;
@@ -30,6 +48,9 @@ public class SinglePlayerActivity extends AppCompatActivity {
     final Handler handler = new Handler();
     private boolean button_pressed_early;
     private static final String FILENAME = "com.example.jake.jtdavids_reflex.data";
+    //The design of the following runnable code invoked by a handler is sourced from:
+    //Author: Rajapandian
+    //URL: http://stackoverflow.com/questions/1921514/how-to-run-a-runnable-thread-in-android
     private Runnable reaction_wait = new Runnable(){
 
         public void run() {
@@ -167,7 +188,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         msg.setText(message);
     }
     private void saveInFile() {
-        //*** code design sourced from the Cmput 301 Lab sessions ***
+        //*** gson code design sourced from the Cmput 301 Lab sessions. Author: Joshua Campbell ***
         //Save instance of StatisticCalc to data file
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -186,7 +207,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         }
     }
     private void loadFromFile() {
-        //*** code design sourced from the Cmput 301 Lab sessions ***
+        //*** gson code design sourced from the Cmput 301 Lab sessions. Author: Joshua Campbell***
         //load the instance of StatisticCalc from data file
         //contains list of all previous reaction times
         try {

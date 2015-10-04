@@ -1,8 +1,25 @@
+/*
+{{ jtdavids-reflex }}
+Copyright (C) 2015 Jake Davidson
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 package com.example.jake.jtdavids_reflex;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +28,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -20,8 +36,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 
 public class Statistics_activity extends AppCompatActivity {
@@ -133,7 +147,7 @@ public class Statistics_activity extends AppCompatActivity {
         edit_medtime_100.setText(stats.getSpecifiedTimeMed(100));
     }
     private void saveInFile() {
-        //*** code design sourced from Cmput 301 Lab sessions ***
+        //*** gson code design sourced from Cmput 301 Lab sessions. Author: Joshua Campbell ***
         //saves StatisticCalc instance back into data file
         try {
             FileOutputStream fos = openFileOutput(FILENAME,
@@ -152,7 +166,7 @@ public class Statistics_activity extends AppCompatActivity {
         }
     }
     private void loadFromFile() {
-        //*** code design sourced from Cmput 301 Lab Sessions ***
+        //*** gson code design sourced from Cmput 301 Lab Sessions. Author: Joshua Campbell ***
         //load StatisticCalc instance from data file which contains a list
         //of all recorded reaction times
         try {
@@ -201,7 +215,7 @@ public class Statistics_activity extends AppCompatActivity {
         //Sends email with statistics contained within the body
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("message/rfc822");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"test"});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"<email>"});
         intent.putExtra(Intent.EXTRA_SUBJECT,"Statistics");
         intent.putExtra(Intent.EXTRA_TEXT, stats.getStatsMessage(twoplayers_score, threeplayers_score, fourplayers_score));
         startActivity(intent);
